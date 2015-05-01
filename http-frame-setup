@@ -1,0 +1,8 @@
+(compile -s -O3 -d1 http-frame.scm -j http-frame)
+(compile -s http-frame.import.scm -O3 -d0)
+
+(install-extension
+  'http-frame
+  '("http-frame.so" "http-frame.import.so")
+  '((version "0.1")))
+
