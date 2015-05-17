@@ -1,7 +1,7 @@
 ((files "http-frame.setup" "http-frame.release-info" "http-frame.meta" "http-frame.scm" "tests/run.scm")
  (license "BSD")
  (category web)
- (needs defstruct)
+ (needs defstruct srfi-13 extras data-structures ports)
  (test-depends test json)
  (author "Omar Shorbaji")
  (synopsis "A HTTP/2 framing library for Chicken"))
