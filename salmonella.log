@@ -1,0 +1,39 @@
+(#f
+ start
+ 0
+ "salmonella -- a tool for testing Chicken eggs (http://wiki.call-cc.org/egg/salmonella)\n\nStarted on Sun May 17 13:12:01 2015\nCommand line: salmonella\n\nOptions:\n  chicken-install: /usr/bin/chicken-install\n  repo-dir: /home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo\n  chicken-install-args:  -prefix /home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo -test\n\nChicken banner:\n\nCHICKEN\n(c) 2008-2014, The Chicken Team\n(c) 2000-2007, Felix L. Winkelmann\nVersion 4.9.0.1 (stability/4.9.0) (rev 8b3189b)\nlinux-unix-gnu-x86 [ manyargs dload ptables ]\nbootstrapped 2014-06-07\n\n\nEnvironment variables:\n  SALMONELLA_RUNNING: 1\n  CHICKEN_INSTALL_PREFIX: /home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo\n  CHICKEN_INCLUDE_PATH: /home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/share/chicken\n  CHICKEN_C_INCLUDE_PATH: /home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/include/chicken\n  CHICKEN_REPOSITORY: /home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/lib/chicken/7\n  CHICKEN_HOME: (not set)\n  CSC_OPTIONS: (not set)\n  PATH: /home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/bin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games\n"
+ 1431882721.0)
+(http-frame fetch 0 "" 0)
+(http-frame
+  meta-data
+  #t
+  ((files "http-frame.setup"
+          "http-frame.release-info"
+          "http-frame.meta"
+          "http-frame.scm"
+          "tests/run.scm")
+   (license "BSD")
+   (category web)
+   (needs defstruct srfi-13 extras data-structures ports)
+   (test-depends test json)
+   (author "Omar Shorbaji")
+   (synopsis "A HTTP/2 framing library for Chicken"))
+  0)
+(http-frame
+  check-dependencies
+  #f
+  "The following chicken units are in one of the dependencies list of this egg: srfi-13, extras, ports"
+  0)
+(http-frame
+  install
+  0
+  "/usr/bin/chicken-install  -prefix /home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo\nretrieving ...\nchecking platform for `http-frame' ...\nchecking dependencies for `http-frame' ...\nmapped (defstruct srfi-13 extras data-structures ports) to (defstruct)\n missing: defstruct\nretrieving ...\nconnecting to host \"chicken.kitten-technologies.co.uk\", port 80 ...\nrequesting \"/henrietta.cgi?name=defstruct&mode=default\" ...\nreading response ...\nHTTP/1.1 200 OK\nDate: Sun, 17 May 2015 17:12:04 GMT\nServer: Apache/2.2.29 (Unix) DAV/2 SVN/1.8.10 PHP/5.4.32 mod_fastcgi/2.4.6\nConnection: close\nContent-Length: 7002\nContent-Type: text/plain\nreading files ...\n  ./defstruct.meta\n  ./defstruct.scm\n  ./defstruct.setup\n defstruct located at /tmp/temp37a3.27744/defstruct\nchecking platform for `defstruct' ...\nchecking dependencies for `defstruct' ...\ninstall order:\n(\"defstruct\" \"http-frame\")\ninstalling defstruct:1.6 ...\nchanging current directory to /tmp/temp37a3.27744/defstruct\n  '/usr/bin/csi' -bnq -setup-mode -e \"(require-library setup-api)\" -e \"(import setup-api)\" -e \"(setup-error-handling)\" -e \"(extension-name-and-version '(\\\"defstruct\\\" \\\"1.6\\\"))\" -e \"(destination-prefix \\\"/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo\\\")\" -e \"(runtime-prefix \\\"/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo\\\")\" 'defstruct.setup'\n  '/usr/bin/csc' -feature compiling-extension -setup-mode    -s -O2 defstruct.scm -j defstruct\n  '/usr/bin/csc' -feature compiling-extension -setup-mode    -s -O2 defstruct.import.scm\n  cp -r 'defstruct.so' '/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/lib/chicken/7/defstruct.so'\n  chmod a+r '/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/lib/chicken/7/defstruct.so'\n  cp -r 'defstruct.import.so' '/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/lib/chicken/7/defstruct.import.so'\n  chmod a+r '/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/lib/chicken/7/defstruct.import.so'\n  chmod a+r '/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/lib/chicken/7/defstruct.setup-info'\ninstalling http-frame: ...\nchanging current directory to .\n  '/usr/bin/csi' -bnq -setup-mode -e \"(require-library setup-api)\" -e \"(import setup-api)\" -e \"(setup-error-handling)\" -e \"(extension-name-and-version '(\\\"http-frame\\\" \\\"\\\"))\" -e \"(destination-prefix \\\"/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo\\\")\" -e \"(runtime-prefix \\\"/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo\\\")\" 'http-frame.setup'\n  '/usr/bin/csc' -feature compiling-extension -setup-mode    -s -O3 -d1 http-frame.scm -j http-frame\n  '/usr/bin/csc' -feature compiling-extension -setup-mode    -s http-frame.import.scm -O3 -d0\n  cp -r 'http-frame.so' '/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/lib/chicken/7/http-frame.so'\n  chmod a+r '/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/lib/chicken/7/http-frame.so'\n  cp -r 'http-frame.import.so' '/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/lib/chicken/7/http-frame.import.so'\n  chmod a+r '/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/lib/chicken/7/http-frame.import.so'\n  chmod a+r '/home/omar/Dropbox/src/http-frame/salmonella-tmp-350f7/repo/lib/chicken/7/http-frame.setup-info'\n"
+  9.0)
+(http-frame
+  check-version
+  -1
+  "Version check requires a local repository of eggs sources."
+  "0.1")
+(http-frame test -1 "" 0)
+(http-frame check-doc 1 "" 0.0)
+(#f end 0 "" 1431882756.0)
