@@ -13,7 +13,6 @@
     (window-update 1 7)
     (continuation 1 "encoded header block fragment" #t)))
 
-
 (define (same a b)
   (and (eq? (length a)
 	    (length b))
