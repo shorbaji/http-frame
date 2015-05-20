@@ -101,7 +101,7 @@
        (and (member t (car triple)) (eq? (bitwise-and o (cadr triple)) (cadr triple)) (caddr triple)))
      '(((settings ping) 1 ack)
        ((data headers) 1 end-stream)
-       ((headers push-promise) 4 end-headers)
+       ((headers push-promise continuation) 4 end-headers)
        ((data headers push-promise) 8 padded)
        ((headers) 32 priority))))
 
@@ -115,7 +115,7 @@
   (define (unfuse s)
     (let* ((ls (octify s)))
       (cons (if (zero? (bitwise-and 128 (car ls))) 0 1)
-            (cons (bitwise-and 127 (car ls)) (cdr ls)))))
+            (octets->integer (cons (bitwise-and 127 (car ls)) (cdr ls))))))
 
   (define (str->esdw s)
     (let* ((esd (unfuse (string-take s 4)))
@@ -173,7 +173,7 @@
       (list id psid hbf eh)))
 
   (define (parse-ping-payload l f id p)
-    (list p))
+    (list p (is 'ack f)))
 
   (define (parse-goaway-payload l f id p)
     (let* ((ls (str->integer (string-take p 4)))
@@ -287,10 +287,10 @@
            (p (conc (integer->str psid 4) hbf)))
       (write-all l 'push-promise f sid p)))
 
-  (define (write-ping-frame data) (write-all 8 'ping '() 0 data))
+  (define (write-ping-frame data ack) (write-all 8 'ping (if ack '(ack) '()) 0 data))
 
   (define (write-goaway-frame ls ec dd)
-    (write-all (+ 4 (string-length dd)) 'goaway '()
+    (write-all (+ 8 (string-length dd)) 'goaway '()
 	       0 (conc (integer->str ls 4) (integer->str ec 4) dd)))
 
   (define (write-window-update-frame sid wsi)
